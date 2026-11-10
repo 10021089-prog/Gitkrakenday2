@@ -1,8 +1,6 @@
-
 public class ThreadCounter {
 
     public static void main(String[] args) {
-
         final int TOTAL_THREADS = 1000;
         final int MAX_NUMBER = 1_000_000;
 
@@ -13,6 +11,7 @@ public class ThreadCounter {
         Thread[] threads = new Thread[TOTAL_THREADS];
 
         // Create 1000 threads
+        CodeTimer.start();
         for (int i = 0; i < TOTAL_THREADS; i++) {
 
             final int threadNumber = i;
@@ -49,6 +48,7 @@ public class ThreadCounter {
                 return;
             }
         }
+        System.out.println("time taken" + CodeTimer.stop());
 
         // Add all thread results together
         int grandTotal = 0;
@@ -61,4 +61,5 @@ public class ThreadCounter {
         System.out.println("Number of threads: " + TOTAL_THREADS);
         System.out.println("Grand Total: " + grandTotal);
     }
+
 }
